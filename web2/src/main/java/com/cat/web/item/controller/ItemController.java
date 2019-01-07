@@ -158,8 +158,9 @@ public class ItemController {
 	@RequestMapping(value="/buyItem.do")
 	public String buyItem(ItemVO vo, Model model, HttpSession session) {
 		System.out.println("상품 리스트 보기 전");
-		MemberVO user = (MemberVO) session.getAttribute("userVO2");
-		session.setAttribute("userVO2", itemService.buyItem(vo, user));
+		MemberVO user = (MemberVO) session.getAttribute("MemberVO2");
+		System.out.println(user.toString());
+		session.setAttribute("MemberVO2", itemService.buyItem(vo, user));
 		model.addAttribute("itemVO", itemService.getItem(vo));
 		System.out.println("상품 리스트 보기 성공");
 		return "redirect:mainContents.jsp";
@@ -194,14 +195,14 @@ public class ItemController {
 	
 	@RequestMapping(value="/buyCartList.do")
 	public String buyCartList(CartVO vo, HttpSession session) {
-		MemberVO user = (MemberVO) session.getAttribute("userVO2");
+		MemberVO user = (MemberVO) session.getAttribute("MemberVO2");
 		CartVO cart = (CartVO) session.getAttribute("cart");
 		List<ItemVO> buyTarget = new ArrayList<ItemVO>();
 		for (int index : vo.getBuyCartNumber()) {
 			buyTarget.add(cart.getCart().get(index));
 		}
 		for (ItemVO item : buyTarget) {
-			session.setAttribute("userVO2", itemService.buyItem(item, user));
+			session.setAttribute("MemberVO2", itemService.buyItem(item, user));
 		}
 		cart.getCart().removeAll(buyTarget);
 		session.setAttribute("cart", cart);

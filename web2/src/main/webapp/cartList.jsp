@@ -9,9 +9,9 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="./resources/css/cartList.css">
-
-<script src = "./resources/js/total.js"></script>
-<script src="//code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="./resources/js/jquery-1.12.4.min.js"></script>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script type="text/javascript" src="./resources/js/total2.js"></script>
 </head>
 <body>
 <div id="wrap" style="width:800px; margin: 0 auto;">

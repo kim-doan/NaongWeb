@@ -49,8 +49,8 @@
 	</select>
 	
 	<insert id="insertBuyItem">
-		insert into t_buyitem(u_id, i_id, sales_qty, id, buy_time, state)		
-		values (#{uId}, #{iId}, #{salesQuantity}, nextval('seq_buyitem'), now(), false)
+		insert into t_buyitem(u_id, i_id, sales_qty, id, buy_time)		
+		values (#{uId}, #{iId}, #{salesQuantity}, SEQ_BUYITEM.NEXTVAL, SYSDATE)
 	</insert>
 	
 	<update id="buyItem">
@@ -62,7 +62,7 @@
 	</select>
 	
 	<select id="getHitItem" resultMap="ItemVO">
-		select * from t_buyitem 
+		select * from t_buyitem
 	</select>
 	
 	<select id="getItemListByType" resultMap="ItemVO">

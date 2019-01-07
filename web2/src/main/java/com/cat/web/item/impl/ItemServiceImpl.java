@@ -96,6 +96,7 @@ public class ItemServiceImpl implements ItemService {
 	public MemberVO buyItem(ItemVO buyItem, MemberVO user) {
 		//유저가 산 상품 등록
 		BuyItemVO vo = new BuyItemVO(user.getNo(), buyItem.getId(), buyItem.getSalesQuantity());
+		System.out.println(vo.toString());
 		ItemDAO.insertBuyItem(vo);
 		//관심 상품 등록
 		return memberService.addMyFavoriteList(user, getItem(buyItem).getIcId());

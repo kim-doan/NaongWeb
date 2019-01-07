@@ -33,6 +33,7 @@ public class MemberServiceImpl implements MemberService {
 		MemberVO user = memberDAO.LogIn(vo);
 		//유저 객체에 관심 사항 담아주기
 		setMyFavoriteList(user);
+		
 		List<BuyItemVO> purchasingList = user.getPurchasingList();
 		Collections.sort(purchasingList, new RecentCompare());
 		user.setPurchasingList(purchasingList);

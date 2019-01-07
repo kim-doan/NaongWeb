@@ -37,7 +37,7 @@
 					<td class="account">관심 사항</td>
 					<td>
 						<center>
-							<c:forEach items="${userVO2.myFavoriteList}" var="category">
+							<c:forEach items="${MemberVO2.myFavoriteList}" var="category">
 								${category.type}
 							</c:forEach>
 						</center>
@@ -72,7 +72,7 @@
 		<div id="a">
 			<center>
 			<table cellpadding="0" cellspacing="0" style="width:850px">
-				<c:forEach items="${userVO2.purchasingList}" var="purchasingItem">
+				<c:forEach items="${MemberVO2.purchasingList}" var="purchasingItem">
 					<tr>
 						<td style="width:65px; text-align:center; color:#353535">${purchasingItem.id}</td>
 						<td style="width:150px; text-align:center; color:#353535"><img src="getItemImg.do?id=${purchasingItem.item.id}" style="width:130px; height:150px;"></td>

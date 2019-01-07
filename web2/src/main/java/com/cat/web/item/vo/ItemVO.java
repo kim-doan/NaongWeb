@@ -18,7 +18,8 @@ public class ItemVO {
 	private boolean alive = true;		//판매 가능 상품
 	
 	private int totalSalesAmount = price * salesQuantity; //매출액
-	private String comment;				//제품설명
+	private String text;				//제품설명
+	private String comment;
 	private Date registerDate;			//등록 날짜
 	
 //	private List<KeywordVO> seachedKeywordList = new ArrayList<>();	//검색된 키워드
@@ -94,12 +95,12 @@ public class ItemVO {
 		this.registerDate = registerDate;
 	}
 
-	public String getComment() {
-		return comment;
+	public String getText() {
+		return text;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setText(String text) {
+		this.text = text;
 	}
 
 	public String getImgPath() {
@@ -231,6 +232,14 @@ public class ItemVO {
 	public String toString() {
 		return "ItemVO [id=" + id + ", name=" + name + ", icId=" + icId + ", price=" + price + ", stockQuantity="
 				+ stockQuantity + ", salesQuantity=" + salesQuantity + ", totalSalesAmount="
-				+ totalSalesAmount + ", comment=" + comment + ", accuracy = " + accuracy;
+				+ totalSalesAmount + ", comment=" + text + ", accuracy = " + accuracy;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 }

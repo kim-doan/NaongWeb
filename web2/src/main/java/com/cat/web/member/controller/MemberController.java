@@ -62,7 +62,7 @@ public class MemberController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(@ModelAttribute MemberVO vo, HttpSession session) {
-		System.out.println(vo.toString());
+		System.out.println("123" + vo.toString());
 		MemberVO member = memberService.LogIn(vo);
 		System.out.println("member" + member.toString());
 		if(member.getId() != null) {
@@ -116,14 +116,14 @@ public class MemberController {
 		return "getMyInfo.jsp";
 	}
 	
-//	@RequestMapping(value="/purchasingList")
-//	public String purchasingList(HttpSession session) {
-//		System.out.println("구매 내역 보기 전");
-//		MemberVO vo = (MemberVO) session.getAttribute("MemberVO2");
-//		memberService.purchasingList(vo);
-//		System.out.println("구매 내역 보기 후");
-//		return "login.jsp";
-//	}
+	@RequestMapping(value="/purchasingList")
+	public String purchasingList(HttpSession session) {
+		System.out.println("구매 내역 보기 전");
+		MemberVO vo = (MemberVO) session.getAttribute("MemberVO2");
+		memberService.purchasingList(vo);
+		System.out.println("구매 내역 보기 후");
+		return "login.jsp";
+	}
 	
 	
 }
