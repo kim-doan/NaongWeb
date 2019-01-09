@@ -196,7 +196,9 @@ public class ItemController {
 	@RequestMapping(value="/buyCartList.do")
 	public String buyCartList(CartVO vo, HttpSession session) {
 		MemberVO user = (MemberVO) session.getAttribute("MemberVO2");
+		System.out.println(user.toString());
 		CartVO cart = (CartVO) session.getAttribute("cart");
+		System.out.println(cart.toString());
 		List<ItemVO> buyTarget = new ArrayList<ItemVO>();
 		for (int index : vo.getBuyCartNumber()) {
 			buyTarget.add(cart.getCart().get(index));
