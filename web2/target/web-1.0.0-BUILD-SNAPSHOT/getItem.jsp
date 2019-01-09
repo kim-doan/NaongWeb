@@ -8,8 +8,9 @@
 
 
 <link rel="stylesheet" href="./resources/css/getItem.css">
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script src = "./resources/js/total.js"></script>
+<script type="text/javascript" src="./resources/js/jquery-1.12.4.min.js"></script>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script type="text/javascript" src="./resources/js/total2.js"></script>
 
 </head>
 <body>
@@ -74,7 +75,7 @@
 			<td></td>
 		</table>
 			<div id="footer" style="overflow-y:scroll; width:100%; height:300px;">
-				<pre width="100%" style="white-space: pre-wrap; word-wrap: break-word;">${itemVO.comment}</pre>
+				<pre width="100%" style="white-space: pre-wrap; word-wrap: break-word;">${itemVO.text}</pre>
 			</div>
 		</div>		
 	</form>

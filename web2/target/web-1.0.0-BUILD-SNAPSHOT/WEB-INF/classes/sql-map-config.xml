@@ -4,10 +4,16 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-			<typeAlias alias="MemberVO" type="com.cat.web.member.vo.MemberVO" ></typeAlias>
+		<typeAlias alias="MemberVO" type="com.cat.web.member.vo.MemberVO" ></typeAlias>
+		<typeAlias alias="ItemVO" type="com.cat.web.item.vo.ItemVO" ></typeAlias>
+		<typeAlias alias="BuyItemVO" type="com.cat.web.item.vo.BuyItemVO" ></typeAlias>
+		<typeAlias alias="ItemCategoryVO" type="com.cat.web.item.vo.ItemCategoryVO" ></typeAlias>
+		<typeAlias alias="TendencyAnalysisVO" type="com.cat.web.item.vo.TendencyAnalysisVO" ></typeAlias>
+		<typeAlias alias="FavoriteCategoryVO" type="com.cat.web.member.vo.FavoriteCategoryVO" ></typeAlias>
 	</typeAliases>
 	
 	<mappers>
 			<mapper resource="mappings/user-mapping.xml" />
+			<mapper resource="mappings/item-mapping.xml" />
 	</mappers>
 </configuration>

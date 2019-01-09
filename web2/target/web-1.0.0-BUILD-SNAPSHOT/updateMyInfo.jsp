@@ -7,12 +7,9 @@
 <title>나의 정보 수정</title>
 
 <link rel="stylesheet" href="./resources/css/updateMyInfo.css">
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="./resources/js/jquery-1.12.4.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src = "./resources/js/total.js"></script>
+<script type="text/javascript" src="./resources/js/total2.js"></script>
 
 </head>
 <body>
@@ -20,8 +17,8 @@
 		<table width="1000" cellpadding="0" cellspacing="0">
 			<tr>
 				<th>이름</th>
-				<td><input type="hidden" name="id" id="id" value="${userVO2.id}">
-					<input id="name" type="text" value="${userVO2.name}" readonly>아이디(${userVO2.loginId})
+				<td><input type="hidden" name="no" id="no" value="${MemberVO2.no}">
+					<input id="name" type="text" value="${MemberVO2.name}" readonly>아이디(${MemberVO2.id})
 				</td>
 			</tr>
 			
@@ -52,7 +49,7 @@
 			
 			<tr>
 				<th>연락처</th>
-				<td><input type="hidden" name="phoneNumber" id="phoneNumber">
+				<td><input type="hidden" name="phone" id="phone">
 					<select id="firstNum" style="width:60px; height:23px;">
 						<option value="" selected>선택</option>
 						<option value="010">010</option>

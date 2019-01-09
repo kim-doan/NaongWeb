@@ -8,12 +8,11 @@
 <link rel="stylesheet" href="./resources/css/aTagStyle.css">
 </head>
 <body>
-	${boardCategory.name}
 	<center>
 		<hr>
 		<form action="insertBoard.do" method="POST">
-			<input type="hidden" name="bcId" value="${boardCategory.id}">	
-			<input type="hidden" name="writerId" value="${userVO2.id}">						
+			<input type="hidden" name="bcId" value="1">	
+			<input type="hidden" name="writerId" value="${MemberVO2.no}">						
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
 					<td width="70">제목</td>
@@ -22,7 +21,7 @@
 				<tr>
 					<td><br>작성자</td>
 					<td align="left"><br>
-					<input type="hidden" name="writer" size="10" value="${userVO2.name}" readonly/>${userVO2.name}</td>					
+					<input type="hidden" name="writer" size="10" value="${MemberVO2.name}" readonly/>${MemberVO2.name}</td>					
 				</tr>
 				<tr>
 					<td><br>내용</td>

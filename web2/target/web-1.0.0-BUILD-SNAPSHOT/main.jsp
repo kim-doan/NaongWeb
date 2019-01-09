@@ -9,7 +9,7 @@
 <title>MainView</title>
 <script type="text/javascript" src="./resources/js/jquery-1.12.4.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-<script src="./resources/js/total.js"></script>
+<script type="text/javascript" src="./resources/js/total2.js"></script>
 <link rel="stylesheet" href="./resources/css/main.css">
 
 </head>
@@ -20,11 +20,11 @@
 			<div id="login" style="width: auto; height: 30px;">
 				<table>
 					<tr>
-						<c:if test="${userVO2 == null}">
+						<c:if test="${MemberVO2 == null}">
 						<td width=500px;><a target="iframe1" href="#"
-								class="sidemenu">회원이름 (아이디) 환영합니다.</a></td>
+								class="sidemenu"></a></td>
 							<td width=90px;><a target="iframe1" href="login.jsp"
-								class="sidemenu">Login</a></td>
+								class="sidemenu">로그인</a></td>
 							<td width=90px;><a target="iframe1" href="terms.jsp"
 								class="sidemenu">회원가입</a></td>
 							<td width=90px;><a target="iframe1" href="cartList.jsp"
@@ -32,21 +32,18 @@
 							<td width=90px;><a target="iframe1" href="getMyInfo.jsp"
 								class="sidemenu">마이페이지</a></td>
 						</c:if>
-						<c:if test="${userVO2 != null}">
-							<td width=70px;>
-								<!-- 						<form action="logout.do" method="post"> --> <a
-								class="sidemenu" onclick="logout()" style="cursor: pointer">Logout</a>
-								<!-- 						</form> -->
-							</td>
-							<td width=90px;><a target="iframe1" href="#"
-								class="sidemenu" font-color="red">회원이름 (아이디) 환영합니다.</a></td>
-							<td width=90px;><a target="iframe1" href="getMyInfo.do"
-								class="sidemenu">내정보</a></td>
-							<td width=70px;><a target="iframe1" href="cartList.jsp"
+						<c:if test="${MemberVO2 != null}">
+						<td width=500px;><a href="#"
+								class="sidemenu">${MemberVO2.name}님 환영합니다.</a></td>
+							<td width=90px;><a onclick="logout()"
+								class="sidemenu">로그아웃</a></td>
+							<td width=90px;><a target="iframe1" href="cartList.jsp"
 								class="sidemenu">장바구니</a></td>
+							<td width=90px;><a target="iframe1" href="getMyInfo.do"
+								class="sidemenu">마이페이지</a></td>
 						</c:if>
 						<!-- 관리자모드 설정 (관리자 = 1 일반사용자  = 0) -->
-						<c:if test="${userVO2.isAdmin == 1}">
+						<c:if test="${MemberVO2.admin == 1}">
 							<td width=90px;><a href="adminModeIndex.jsp"
 								onClick="window.open(this.href, '', 'location=no,status=yes,scrollbars=1,resizable=1,width=1200,height=800,left=0,top=0'); return false;"
 								class="sidemenu"><font color="red"><b>관리자모드</b></font></a></td>

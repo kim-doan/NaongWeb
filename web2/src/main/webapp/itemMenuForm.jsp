@@ -35,7 +35,7 @@
 				<hr align="left" style="width: 80%;"><br>
 				&nbsp;<a target="iframe2" class="menuLink" href="itemListByType.do?icId=0&type=new">NEW</a><br><br>
 				&nbsp;<a target="iframe2" class="menuLink" href="itemListByType.do?icId=0&type=best">BEST</a><br><br>
-				<c:if test="${userVO2 != null}">
+				<c:if test="${MemberVO2 != null}">
 					&nbsp;<a target="iframe2" class="menuLink" href="itemListByType.do?icId=0&type=favorite">MY FAVORITE</a><br><br>
 				</c:if>
 			</div>

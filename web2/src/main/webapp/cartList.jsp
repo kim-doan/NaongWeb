@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="./resources/css/cartList.css">
 <script type="text/javascript" src="./resources/js/jquery-1.12.4.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-<script type="text/javascript" src="./resources/js/total2.js"></script>
+<script type="text/javascript" src="./resources/js/total.js"></script>
 </head>
 <body>
 <div id="wrap" style="width:800px; margin: 0 auto;">

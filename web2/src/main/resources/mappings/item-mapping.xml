@@ -62,7 +62,10 @@
 	</select>
 	
 	<select id="getHitItem" resultMap="ItemVO">
-		select * from t_buyitem
+		select t_item.id, name, price, sum(t_buyitem.sales_qty) as sales_qty from t_buyitem 
+		join t_item on t_buyitem.i_id = t_item.id 
+		group by t_item.id, name, price
+		order by sum(t_buyitem.sales_qty) desc
 	</select>
 	
 	<select id="getItemListByType" resultMap="ItemVO">
@@ -209,8 +212,8 @@
 		
 		<association property="item" javaType="ItemVO">
 			<id property="id" column="i_id"/>
-			<result property="name" column="item_name"/>
-			<result property="price" column="item_price"/>
+			<result property="name" column="name"/>
+			<result property="price" column="price"/>
 		</association>
 		<association property="buyer" javaType="MemberVO">
 			<id property="id" column="u_id"/>

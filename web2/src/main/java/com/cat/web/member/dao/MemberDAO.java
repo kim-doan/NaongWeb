@@ -27,7 +27,8 @@ public class MemberDAO {
 	}
 
 	//회원 관리 회원 삭제
-	public void deleteUser(MemberVO vo) {	
+	public void deleteUser(MemberVO vo) {
+		System.out.println(vo.toString());
 		mapper.delete("MemberDAO.deleteUser", vo);	
 	}
 

@@ -59,7 +59,7 @@
 			<td></td>
 			<td></td>
 			<td></td>
-			<td align="center"><a href="insertBoard.do?id=${boardCategory.id}">글쓰기</a></td>
+			<td align="center"><a href="insertBoard.do">글쓰기</a></td>
 			</tr>
 			<tr>
 				<td colspan="5">

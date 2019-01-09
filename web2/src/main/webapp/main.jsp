@@ -9,7 +9,7 @@
 <title>MainView</title>
 <script type="text/javascript" src="./resources/js/jquery-1.12.4.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-<script type="text/javascript" src="./resources/js/total2.js"></script>
+<script type="text/javascript" src="./resources/js/total.js"></script>
 <link rel="stylesheet" href="./resources/css/main.css">
 
 </head>
@@ -103,11 +103,11 @@
 							target="iframe1" class="menuLink"
 							href="#">위생/미용</a></li>
 						<li class="topMenuLi" style="width: 100px; height: 30px;"><a
-							target="iframe1" class="menuLink" href="getBoardList.jsp">자유게시판</a>
+							target="iframe1" class="menuLink" href="getBoardList.do">자유게시판</a>
 							<ul>
 								<li
 									style="width: 100px; height: 30px; display: none; display: block;"><a
-									href="getBoardList.jsp" target="iframe1">자유게시판</a></li>
+									href="getBoardList.do" target="iframe1">자유게시판</a></li>
 								<li
 									style="width: 100px; height: 30px; display: none; display: block;"><a
 									href="FAQ.jsp" target="iframe1">QnA</a></li>

@@ -14,7 +14,8 @@
 	<hr>
 		<form action="insertReply.do" method="post">
 			<input type="hidden" name="parentId" value="${board.id}">	
-			<input type="hidden" name="replyerId" value="${userVO2.id}">
+			<input type="hidden" name="replyer" value="${MemberVO2.name}">	
+			<input type="hidden" name="replyerId" value="${MemberVO2.no}">
 			<input type="hidden" name="count" value="${board.count}">
 			<input type="hidden" name="id" value="${board.id}">
 		<table cellpadding="0" cellspacing="0" style="width:100%; height:100%;">
@@ -59,11 +60,11 @@
 					<td bgcolor="#F9F9F9" bordercolor=#F9F9F9><center><fmt:formatDate value="${reply.regDate}" pattern="yy-MM-dd HH:mm"/></center></td>
 						<td>
 							<c:choose>
-								<c:when test="${reply.replyerId == userVO2.id}">
+								<c:when test="${reply.replyerId == MemberVO2.no}">
 								<a href="getReply.do?id=${reply.id}">✎</a>
 								<a href="deleteReply.do?id=${reply.id}&bcId=${board.bcId}&parentId=${reply.parentId}">✖</a>
 								</c:when>
-								<c:when test="${userVO2.isAdmin == '1'}">
+								<c:when test="${MemberVO2.admin == 1}">
 									<a href="deleteReply.do?id=${reply.id}&bcId=${board.bcId}&parentId=${reply.parentId}">✖</a>
 								</c:when>							
 								<c:otherwise>           			
@@ -85,14 +86,14 @@
 		</table>	
 		</form>	
 	<hr>
-	<p align="right"><a href="getBoardCategory.do?bcId=${board.bcId}">글쓰기</a>&nbsp;&nbsp;&nbsp;
+	<p align="right"><a href="insertBoard.do">글쓰기</a>&nbsp;&nbsp;&nbsp;
    
     <!-- 글이 쓴 자신이거나 이면 수정 삭제버튼 생성 관리자이면 삭제버튼 무조건 생성-->    
-    <c:if test="${board.writerId == userVO2.id}">
+    <c:if test="${board.writerId == MemberVO2.no}">
         <a href="deleteBoard.do?id=${board.id}">글삭제</a>&nbsp;&nbsp;&nbsp;
         <a href="getBoard.do?id=${board.id}&modify=true">글수정</a>&nbsp;&nbsp;&nbsp;
     </c:if>
-    <c:if test="${userVO2.isAdmin =='1'}">
+    <c:if test="${MemberVO2.admin =='1'}">
 	<a href="deleteBoard.do?id=${board.id}">글삭제</a>&nbsp;&nbsp;&nbsp;
 	</c:if>	
 	<a href="getBoardList.do?bcId=${board.bcId}">글목록</a>&nbsp;&nbsp;&nbsp;

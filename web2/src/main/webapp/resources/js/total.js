@@ -157,7 +157,7 @@ function checkAlive(result) {
 //chat
 
 var buf = "";
-var webSocket = new WebSocket('ws://192.168.0.31:8080/bsm/broadcasting');
+var webSocket = new WebSocket('ws://35.243.86.231:8080/web/broadcasting');
 webSocket.onerror = function(event) {
 	onError(event)
 };
@@ -322,7 +322,7 @@ var checkPassword = false;
 function checkId() {
 	var loginId = $('#loginId').val().replace(/\s/gi, '');
 	if (loginId == "") {
-		alert("아이디를 입력해주세요343");
+		alert("아이디를 입력해주세요");
 		$("#Confirm").css("color", "red");
 		$("#Confirm").text("사용 할 수 없는 아이디");
 	} else {
@@ -458,13 +458,13 @@ function doJoin() {
 		$.ajax({
 			type : 'POST',
 			url : 'join.do',
-			data : {"loginId" : loginId, "loginPassword" : loginPassword, "name" : name, "gender" : gender, "securityNumber" : securityNumber, "email" : email, "address" : address, "phoneNumber" : phoneNumber},
+			data : {"id" : loginId, "password" : loginPassword, "name" : name, "sex" : gender, "ssnum" : securityNumber, "email" : email, "address" : address, "phone" : phoneNumber},
 			success : function(data) {
 				alert('가입 되었습니다.')
 				$.ajax({
 					type : 'POST',
 					url : 'login.do',
-					data : { "loginId" : loginId, "loginPassword" : loginPassword},
+					data : { "id" : loginId, "password" : loginPassword},
 					success : function(data) {
 						parent.document.location.reload();
 						parent.opener.location.reload();
@@ -474,6 +474,17 @@ function doJoin() {
 		});
 	}
 }
+//게시글
+//function boardJoin() {
+//	var bcId = $('#bcId').val();
+//	var title = $('#title').val();
+//	var writer = $('#writer').val();
+//	$.ajax({
+//		type : 'POST',
+//		url : 'insertBoard.do'
+//		data : {}
+//	})
+//}
 
 //login
 
@@ -483,7 +494,7 @@ function login(){
 	$.ajax({
 		type : 'POST',
 		url : 'login.do',
-		data : { "loginId" : loginId, "loginPassword" : loginPassword},
+		data : { "id" : loginId, "password" : loginPassword},
 		success : function(data) {
 			parent.document.location.reload();
 			parent.opener.location.reload();
@@ -578,7 +589,7 @@ function updateInfo() {
 	var phoneNumber = $("#firstNum").find(":selected").val() + "-" + $("#middleNum").val() + "-" + $("#lastNum").val();
 	$('#email').val(email);
 	$('#address').val(address);
-	$('#phoneNumber').val(phoneNumber);
+	$('#phone').val(phoneNumber);
 	if ($('#firstEmail').val() == "" || $('#lastEmail').val() == "" || address == " ") {
 		alert('빈 칸이 있습니다. 제대로 입력 바랍니다.')	//빈 칸이 있을 시
 	} else if (!phoneFomatter(phoneNumber)) {	//전화 번호 포맷이 틀렸을때

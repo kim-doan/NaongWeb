@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="./resources/css/adminAnalysis.css">
 <script type="text/javascript" src="./resources/js/jquery-1.12.4.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-<script type="text/javascript" src="./resources/js/total2.js"></script>
+<script type="text/javascript" src="./resources/js/total.js"></script>
 </head>
 <body>		
 	<a href="adminModeIndex.jsp"><b>&lt;&lt;뒤로가기</b></a>
@@ -63,7 +63,7 @@
 						<td><center>${user.email}</center></td>
 						<td>${user.address}</td>
 						<td><center>${user.phone}</center></td>
-						<td width=50px><center><a class="checkBtn" style="cursor:pointer">삭제</a></center></td>
+						<td width=50px><center><a class="checkBtn" style="cursor:pointer" href="deleteMemberAdmin.do?no=${user.no}")>삭제</a></center></td>
 					</tr>		
 				</c:forEach>
 				</table>		

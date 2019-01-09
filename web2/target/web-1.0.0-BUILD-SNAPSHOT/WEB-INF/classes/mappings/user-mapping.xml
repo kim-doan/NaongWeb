@@ -9,9 +9,8 @@
 	</insert>
 
 	<update id="updateInfo">
-		UPDATE MEMBER SET PHONE=#{phone},
-		address=#{address}, email=#{email}
-		where id=#{id}
+		UPDATE MEMBER SET phone=#{phone}, address=#{address}, email=#{email}
+		where no=#{no}
 	</update>
 
 	<delete id="deleteUser">
@@ -23,5 +22,104 @@
 		where ID = #{id}
 	</select>
 	
-
+	<select id="LogIn" resultMap="MemberVO">
+		select U.no, U.name, U.id, U.email, U.address, U.sex, U.ssnum, U.phone, U.admin,
+        B.id as buyitem_id, B.sales_qty as buyitem_sales_qty, B.buy_time as buyitem_buy_time, B.state as buyitem_state,
+        I.id as item_i_id, I.name as item_name, I.price as item_price, I.imgpath as item_imgpath, I.img as item_img, I.ic_id as item_ic_id, I.text as item_comment, I.sales_qty as item_sales_qty 
+		  from  T_BUYITEM B
+		 right outer join MEMBER U
+		    on U.no = B.u_id
+		  left join T_ITEM I
+		    on I.id = B.i_id
+		 where U.id = #{id} and U.password = #{password}
+	</select>
+	
+	<select id="getMyInfo" resultMap="MemberVO">
+		select U.no, U.name, U.id, U.email, U.address, U.sex, U.ssnum, U.phone, U.admin,
+			   B.id as buyitem_id, B.sales_qty as buyitem_sales_qty, B.buy_time as buyitem_buy_time, B.state as buyitem_state,
+			   I.id as item_i_id, I.name as item_name, I.price as item_price, I.imgpath as item_imgpath, I.img as item_img, 
+			   I.ic_id as item_ic_id, I.text as item_comment, I.sales_qty as item_sales_qty
+		  from T_BUYITEM B
+		 right outer join MEMBER U
+		    on U.no = B.u_id
+		  left join T_ITEM I
+		    on I.id = B.i_id
+		 where U.no = #{no}
+	</select>
+	
+	<select id="getUserList" resultMap="MemberVO">
+		select * from MEMBER
+		<if test='searchCondition == "no"'>
+			where no = cast (#{searchKeyword} as Integer)
+		</if>
+		<if test='searchCondition == "id"'>
+			where id LIKE concat ('%', #{searchKeyword}, '%')
+		</if>
+		<if test='searchCondition == "name"'>
+			where name LIKE concat ('%', #{searchKeyword}, '%')
+		</if>
+		<if test='searchCondition == "address"'>
+			where address LIKE concat ('%', #{searchKeyword}, '%')
+		</if>		
+		order by no desc	
+	</select>
+	
+	<insert id="insertMyFavorite">
+		insert into t_favoritecategory(id, u_id, ic_id)
+		values(seq_favorite.nextval, #{uId}, #{icId})
+	</insert>
+	
+	<delete id="deleteMyFavorite">
+		delete from t_favoritecategory where u_id = #{uId}
+	</delete>
+	
+	<select id="checkMyFavorite" resultType="integer">
+		select count(*) from t_favoritecategory where ic_id = #{icId} and u_id = #{uId}
+	</select>
+	
+	<select id="getMyFavorite" resultMap="FavoriteCategoryVO">
+		select * from t_itemcategory 
+		  join t_favoritecategory on t_itemcategory.id = t_favoritecategory.ic_id
+		 where u_id = #{id}
+	</select>
+	
+	<resultMap type="MemberVO" id="MemberVO">
+		<id property="no" column="NO" javaType="int"/>
+		<result property="name" column="NAME"/>
+		<result property="sex" column="SEX"/>
+		<result property="ssnum" column="SSNUM"/>
+		<result property="id" column="ID"/>
+		<result property="password" column="PASSWORD"/>
+		<result property="phone" column="PHONE"/>
+		<result property="email" column="EMAIL"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="admin" column="ADMIN"/>
+		<collection property="purchasingList" javaType="java.util.ArrayList" resultMap="BuyItemVO"/>
+	</resultMap>
+	
+	<resultMap type="FavoriteCategoryVO" id="FavoriteCategoryVO">
+		<result property="uId" column="u_id"/>
+		<result property="icId" column="ic_id"/>
+	</resultMap>
+	
+	<resultMap type="ItemCategoryVO" id="ItemCategoryVO">
+		<result property="parentId" column="parent_id"/>
+	</resultMap>
+	
+	<resultMap type="BuyItemVO" id="BuyItemVO">
+		<id property="id" column="buyitem_id"/>
+		<result property="salesQuantity" column="buyitem_sales_qty"/>
+		<result property="buyTime" column="buyitem_buy_time"/>
+		<result property="state" column="buyitem_state"/>
+		<association property="item" javaType="ItemVO">
+			<id property="id" column="item_i_id"/>
+			<result property="name" column="item_name"/>
+			<result property="price" column="item_price"/>
+			<result property="imgPath" column="item_imgpath"/>
+			<result property="img" column="item_img"/>
+			<result property="icId" column="item_ic_id"/>
+			<result property="text" column="text"/>
+			<result property="salesQuantity" column="item_sales_qty"/>
+		</association>
+	</resultMap>
 </mapper>

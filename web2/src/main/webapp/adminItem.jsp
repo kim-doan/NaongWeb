@@ -9,7 +9,7 @@
 	
 <script type="text/javascript" src="./resources/js/jquery-1.12.4.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-<script type="text/javascript" src="./resources/js/total2.js"></script>
+<script type="text/javascript" src="./resources/js/total.js"></script>
 </head>
 <body>
 	<form action="buyItem.do" method="POST" >
@@ -128,7 +128,7 @@
 						<td><center>${item.id}</center></td>
 						<td style="text-align: right;"><center><c:if test="${item.alive == 'true'}">활성</c:if><c:if test="${item.alive == 'false'}"><font color="red">비활성</font></c:if></center></td>	
 						<td><a onclick="detailClick(${item.id})" style="cursor:pointer">${item.name}</a></td>
-						<td><center>${item.type}</center></td>
+						<td><center>${item.icId}</center></td>
 						<td style="text-align: right;">${item.price}</td>
 						<td style="text-align: right;">${item.stockQuantity}</td>
 						<td style="text-align: right;">${item.salesQuantity}</td>

@@ -96,7 +96,7 @@ public class MemberController {
 		memberService.updateInfo(vo);
 		MemberVO Member = memberService.getMyInfo(vo);
 		session.setAttribute("MemberVO2", Member);
-		return "getMyInfo";
+		return "getMyInfo.jsp";
 	}
 	
 	@RequestMapping(value="/deleteMember")
@@ -106,6 +106,14 @@ public class MemberController {
 		session.invalidate();
 		System.out.println("회원 탈퇴 성공");
 		return "login.jsp";
+	}
+	
+	@RequestMapping(value="/deleteMemberAdmin")
+	public String deleteMemberAdmin(@ModelAttribute MemberVO vo, HttpSession session) {
+		System.out.println("회원 강퇴 전");
+		memberService.deleteUser(vo);
+		System.out.println("회원 강퇴 성공");
+		return "adminModeIndex.jsp";
 	}
 	
 	@RequestMapping(value="/getMyInfo")

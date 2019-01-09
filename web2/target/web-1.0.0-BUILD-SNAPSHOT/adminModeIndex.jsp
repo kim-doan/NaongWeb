@@ -17,7 +17,7 @@
 			&nbsp;<font color="red">MODE</font></b>
 			<hr align="center" style="width: 20%;"><br>
 			&nbsp;<a href="getItemList.do">상품관리</a><br><br>
-			&nbsp;<a href="getUserList.do">회원관리</a><br><br>
+			&nbsp;<a href="getMemberList.do">회원관리</a><br><br>
 			<hr align="center" style="width: 20%;">
 		</div>		
 	</div></center>

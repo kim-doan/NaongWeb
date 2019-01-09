@@ -89,6 +89,7 @@ public class ItemServiceImpl implements ItemService {
 	
 	@Override
 	public List<ItemVO> getHitItem() {
+		System.out.println(ItemDAO.getHitItem());
 		return ItemDAO.getHitItem();
 	}
 	

@@ -10,13 +10,9 @@
 <!-- bootstrap CSS -->
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./resources/css/adminAnalysis.css">
-<!-- jQuery  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- bootstrap JS -->
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src = "./resources/js/resetFormElement.js"></script> 
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>	
-<script src = "./resources/js/total.js"></script>	
+<script type="text/javascript" src="./resources/js/jquery-1.12.4.min.js"></script>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script type="text/javascript" src="./resources/js/total2.js"></script>
 </head>
 <body>		
 	<a href="adminModeIndex.jsp"><b>&lt;&lt;뒤로가기</b></a>
@@ -26,7 +22,7 @@
 	<hr align="left" style="width: 80%;">	
 	<table width=90%>
 		<tr>
-			<td><p>Total Member : ${fn:length(userList)}</p>
+			<td><p>Total Member : ${fn:length(MemberList)}</p>
 			</td>
 			<td><!-- 회원정렬 선택창 -->
 				<p align="right">
@@ -57,16 +53,16 @@
 						<th><center>전화번호</center></th>
 						<th><center></center></th>
 					</tr>
-				<c:forEach items="${userList}" var="user">
+				<c:forEach items="${MemberList}" var="user">
 					<tr>
-						<td><center>${user.id}</center></td>				
-						<td><center>${user.loginId}</center></td>
+						<td><center>${user.no}</center></td>				
+						<td><center>${user.id}</center></td>
 						<td><center>${user.name}</center></td>
-						<td><center><c:if test="${user.isAdmin == '0'}">일반회원</c:if><c:if test="${user.isAdmin == '1'}">운영자</c:if></center></td>
-						<td><center><c:if test="${user.gender == 'female'}">여</c:if><c:if test="${user.gender == 'male'}">남</c:if></center>
+						<td><center><c:if test="${user.admin == '0'}">일반회원</c:if><c:if test="${user.admin == '1'}">운영자</c:if></center></td>
+						<td><center><c:if test="${user.sex == 'female'}">여</c:if><c:if test="${user.sex == 'male'}">남</c:if></center>
 						<td><center>${user.email}</center></td>
 						<td>${user.address}</td>
-						<td><center>${user.phoneNumber}</center></td>
+						<td><center>${user.phone}</center></td>
 						<td width=50px><center><a class="checkBtn" style="cursor:pointer">삭제</a></center></td>
 					</tr>		
 				</c:forEach>
@@ -78,11 +74,11 @@
 			<td colspan='2'>
 				<p>
 				<!-- 검색 시작 -->					
-					<form id="userListForm" action="getUserList.do" method="post" align="right">
+					<form id="userListForm" action="getMemberList.do" method="post" align="right">
 					<input type="button" onclick="getAllUserList()" value="전체목록">
 						<select id="userSearchCondition" name="searchCondition" onchange="userSelected(this.value)">
-								<option value="id">회원번호</option>
-								<option value="loginId">아이디 </option>
+								<option value="no">회원번호</option>
+								<option value="id">아이디 </option>
 								<option value="name">이름 </option>	
 								<option value="address">주소 </option>															
 						</select>

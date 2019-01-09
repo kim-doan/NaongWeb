@@ -7,16 +7,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>BSM 관리자모드/상품관리</title>
 	
-<!-- jQuery  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- bootstrap JS -->
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<!-- bootstrap CSS -->
-<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="./resources/css/adminAnalysis.css">
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src = "./resources/js/resetFormElement.js"></script> 
-<script src = "./resources/js/total.js"></script>
+<script type="text/javascript" src="./resources/js/jquery-1.12.4.min.js"></script>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script type="text/javascript" src="./resources/js/total2.js"></script>
 </head>
 <body>
 	<form action="buyItem.do" method="POST" >

@@ -46,7 +46,7 @@
 				<tr>
 					<td colspan="2" align="center">
 						<a href="updateInfo.do"><button class="button1" type="button" style="height:45px"><center>회원 수정</center></button></a>
-						<a href="deleteUser.do?id${userVO2.id}"><button class="button2" type="submit" style="height:45px"><center>회원 탈퇴</center></button></a>
+						<a href="deleteMember.do?no=${MemberVO2.no}"><button class="button2" type="button" style="height:45px"><center>회원 탈퇴</center></button></a>
 					</td>
 				</tr>
 			</table>

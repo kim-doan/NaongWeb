@@ -34,8 +34,8 @@ New / Best 상품
 									<tr>
 										<td class="product_comment" style="height:250px">
 											<c:choose>
-												<c:when test="${fn:length(slideItem.comment) > 160}">
-													<c:out value="${fn:substring(slideItem.comment,0,159)}"/>....
+												<c:when test="${fn:length(slideItem.text) > 160}">
+													<c:out value="${fn:substring(slideItem.text,0,159)}"/>....
 												</c:when>
 												<c:otherwise>
 													<c:out value="${data.nm}"/>

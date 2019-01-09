@@ -14,7 +14,7 @@
 	</update>
 
 	<delete id="deleteUser">
-		delete from MEMBER where id = #{id}
+		delete from MEMBER where no = #{no}
 	</delete>
 	
 	<select id="checkID" resultType="integer">
